@@ -1,0 +1,71 @@
+---
+import { profile, socials } from '../data/site';
+---
+
+<section id="top" class="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
+  <!-- Dekorasi latar -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[480px] bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.14),transparent_65%)]"
+  >
+  </div>
+
+  <div class="mx-auto max-w-5xl px-6">
+    {
+      profile.available && (
+        <p class="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+            <span class="relative inline-flex size-2 rounded-full bg-emerald-500" />
+          </span>
+          Tersedia untuk proyek baru
+        </p>
+      )
+    }
+
+    <h1
+      class="reveal max-w-3xl text-4xl leading-[1.1] font-semibold tracking-tight text-zinc-900 sm:text-6xl dark:text-zinc-50"
+    >
+      Halo, saya <span class="text-accent dark:text-accent-dark">{profile.name}</span>.
+      <br />
+      {profile.role}.
+    </h1>
+
+    <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+      {profile.tagline}
+      {profile.intro}
+    </p>
+
+    <div class="reveal mt-10 flex flex-wrap items-center gap-4">
+      <a
+        href="#projects"
+        class="rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+      >
+        Lihat proyek
+      </a>
+      <a
+        href="#contact"
+        class="rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-800 transition hover:border-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-300"
+      >
+        Hubungi saya
+      </a>
+    </div>
+
+    <ul class="reveal mt-12 flex flex-wrap gap-6 text-sm text-zinc-500 dark:text-zinc-500">
+      {
+        socials.map((s) => (
+          <li>
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline-offset-4 transition hover:text-zinc-900 hover:underline dark:hover:text-zinc-100"
+            >
+              {s.name} ↗
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

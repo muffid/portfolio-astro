@@ -1,0 +1,11 @@
+---
+import { profile } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-200 py-8 dark:border-zinc-900">
+  <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 text-xs text-zinc-500 sm:flex-row">
+    <p>© {year} {profile.name}. Dibuat dengan Astro & Tailwind CSS.</p>
+    <a href="#top" class="hover:text-zinc-900 dark:hover:text-zinc-100">Kembali ke atas ↑</a>
+  </div>
+</footer>

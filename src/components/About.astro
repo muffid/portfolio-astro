@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import { profile } from '../data/site';
+import photo from '../assets/profile.jpg';
+---
+
+<section id="about" class="border-t border-zinc-200 py-24 dark:border-zinc-900">
+  <div class="mx-auto max-w-5xl px-6">
+    <SectionHeading index="01" title="Tentang saya" />
+
+    <div class="grid gap-12 md:grid-cols-5">
+      <div class="reveal space-y-5 leading-relaxed text-zinc-600 md:col-span-3 dark:text-zinc-400">
+        <div class="flex items-center gap-4 pb-2">
+          <Image
+            src={photo}
+            alt={`Foto ${profile.name}`}
+            width={160}
+            height={160}
+            densities={[1, 2]}
+            class="size-20 rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
+          />
+          <div>
+            <p class="font-semibold text-zinc-900 dark:text-zinc-50">{profile.name}</p>
+            <p class="text-sm text-zinc-500">{profile.role} · {profile.location}</p>
+          </div>
+        </div>
+        {profile.about.map((p) => <p>{p}</p>)}
+      </div>
+
+      <dl class="reveal grid grid-cols-3 gap-4 md:col-span-2 md:grid-cols-1">
+        {
+          profile.stats.map((s) => (
+            <div class="rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+              <dt class="order-2 text-xs text-zinc-500">{s.label}</dt>
+              <dd class="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+                {s.value}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
